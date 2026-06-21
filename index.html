@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo | GameStore</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="header-logo">🎮 GameStore</a>
+  <div class="header-actions">
+    <button class="cart-btn" onclick="toggleCart()" aria-label="Carrito">
+      🛒
+      <span class="cart-badge" id="cart-badge">0</span>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+  <div class="page-header">
+    <h1 class="page-title">Catálogo</h1>
+    <p class="page-subtitle">Merchandising de tus franquicias favoritas</p>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" class="search-input" id="search" placeholder="Buscar productos..." oninput="filterProducts()">
+    <button class="filter-btn active" data-franchise="all" onclick="filterByFranchise('all', this)">Todos</button>
+    <button class="filter-btn" data-franchise="Zelda" onclick="filterByFranchise('Zelda', this)">Zelda</button>
+    <button class="filter-btn" data-franchise="Mario" onclick="filterByFranchise('Mario', this)">Mario</button>
+    <button class="filter-btn" data-franchise="Pokémon" onclick="filterByFranchise('Pokémon', this)">Pokémon</button>
+  </div>
+
+  <div class="product-grid" id="product-grid"></div>
+</main>
+
+<!-- Cart Panel -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-panel" id="cart-panel">
+  <div class="cart-header">
+    <h2 class="cart-title">Tu Carrito</h2>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-totals" id="cart-totals"></div>
+  <a href="checkout.html" class="btn-checkout" id="btn-checkout" onclick="toggleCart()">Ir al checkout</a>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
